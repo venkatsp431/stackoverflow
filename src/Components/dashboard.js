@@ -123,14 +123,14 @@ export default function Dashboard({ questions }) {
           <Card className="question-card" key={idx}>
             <Card.Body>
               <Container>
-                <Row>
-                  <Col xs={6} md={2}>
+                <Row className="direction-column">
+                  <Col xs={12} lg={12} xl={2} md={12}>
                     <span className="views-data">
                       <p>{qn.answers.length} answers</p>
                       <p>{qn.views} views</p>
                     </span>
                   </Col>
-                  <Col xs={12} md={10}>
+                  <Col xs={12} lg={12} xl={10} md={12}>
                     <Card.Title>
                       <a
                         href=""
