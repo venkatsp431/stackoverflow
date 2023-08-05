@@ -87,6 +87,7 @@ export default function Profile() {
   useEffect(() => {
     async function getQues() {
       const token = localStorage.getItem("token");
+      if (!token) navigate("/login");
       const res = await fetch(
         `https://stackoverflow-clone-2zgy.onrender.com/api/users/profile`,
         {
@@ -133,6 +134,7 @@ export default function Profile() {
             <Row>
               <Col md={8}>
                 <h3>My Questions</h3>
+                <p>Create Questions to edit or delete</p>
               </Col>
               <Col md={4}>
                 <Button

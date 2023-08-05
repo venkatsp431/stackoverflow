@@ -32,6 +32,7 @@ export default function Login() {
   return (
     <div className="loginstyles">
       <h3 className="text-dark">Welcome Back</h3>
+      <p>Sample Login: Username : seenu@weepy.co and Password : seenu1234</p>
       <Form className="login-form d-grid">
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>

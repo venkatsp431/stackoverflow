@@ -8,7 +8,7 @@ import { useState } from "react";
 
 export default function Postquestion({ questions, setQuestions }) {
   const navigate = useNavigate();
-
+  if (!localStorage.getItem("token")) navigate("/login");
   const [question, setQuestion] = useState("");
   const [tags, setTags] = useState("");
   const [description, setDescription] = useState("");

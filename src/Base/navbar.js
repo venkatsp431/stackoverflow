@@ -102,7 +102,7 @@ export default function Navbar() {
   };
 
   const menuId = "primary-search-account-menu";
-  const renderMenu = (
+  const renderMenu = localStorage.getItem("token") ? (
     <Menu
       anchorEl={anchorEl}
       anchorOrigin={{
@@ -118,8 +118,26 @@ export default function Navbar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+      <MenuItem onClick={() => navigate("/profile")}>Profile</MenuItem>
       <MenuItem onClick={handleLogout}>Logout</MenuItem>
+    </Menu>
+  ) : (
+    <Menu
+      anchorEl={anchorEl}
+      anchorOrigin={{
+        vertical: "bottom",
+        horizontal: "right",
+      }}
+      id={menuId}
+      keepMounted
+      transformOrigin={{
+        vertical: "bottom",
+        horizontal: "right",
+      }}
+      open={isMenuOpen}
+      onClose={handleMenuClose}
+    >
+      <MenuItem onClick={() => navigate("/login")}>Login</MenuItem>
     </Menu>
   );
 
@@ -181,18 +199,20 @@ export default function Navbar() {
           >
             StackOverflow
           </Typography>
+
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder="Search for tags or whole question"
+              placeholder="Search for tags or whole question (e.g:'javascript')"
               inputProps={{ "aria-label": "search" }}
               value={searcher}
               onChange={(e) => handleQuery(e)}
               onKeyDown={(e) => handleKeyPress(e)}
             />
           </Search>
+
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton
