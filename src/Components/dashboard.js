@@ -5,7 +5,7 @@ import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 function Pagination({ currentPage, totalPages, onPageChange }) {
-  const showPages = 5; // Show 5 page numbers at a time
+  const showPages = 5;
   let startPage = Math.max(1, currentPage - Math.floor(showPages / 2));
   let endPage = Math.min(totalPages, startPage + showPages - 1);
 
