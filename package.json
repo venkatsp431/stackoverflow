@@ -32,6 +32,11 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy":{
+    "name": "my-react-app",
+    "version": "1.0.0",
+    "proxy": "https://stackoverflow-clone-2zgy.onrender.com"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
