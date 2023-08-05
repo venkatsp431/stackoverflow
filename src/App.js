@@ -54,10 +54,7 @@ function App() {
           }
         />
 
-        <Route
-          path="/question/:id"
-          element={<Question questions={questions} />}
-        />
+        <Route path="/question/:id" element={<Question />} />
         <Route
           path="/base"
           element={<Base query={query} setQuery={setQuery} />}
