@@ -19,10 +19,6 @@ export default function Question() {
         `https://stackoverflow-clone-2zgy.onrender.com/api/notes/question/${id}`,
         {
           method: "PUT",
-
-          headers: {
-            "x-auth-token": localStorage.getItem("token"),
-          },
         }
       );
       const result = await res.json();
