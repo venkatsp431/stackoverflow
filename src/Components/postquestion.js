@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Base from "../Base/base";
 import { TextField } from "@mui/material";
 import { Button, Form } from "react-bootstrap";
@@ -8,11 +8,17 @@ import { useState } from "react";
 
 export default function Postquestion({ questions, setQuestions }) {
   const navigate = useNavigate();
-  if (!localStorage.getItem("token")) navigate("/login");
+
   const [question, setQuestion] = useState("");
   const [tags, setTags] = useState("");
   const [description, setDescription] = useState("");
   const [code, setCode] = useState("");
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      // Navigate to login page if token is not present
+      navigate("/login");
+    }
+  }, [navigate]);
 
   const handleClick = async function () {
     const ques = { question, description, code, tags };
